@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صَحّحها بِلُطْف... لِتُعاشَ العَرَبِيَّة</title>
+    <style>
+        :root {
+            --primary: #1b4d3e;
+            --secondary: #c5a059;
+            --bg-light: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --incorrect-color: #d9534f;
+            --correct-color: #27ae60;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 15px;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), #2d7059);
+            color: white;
+            padding: 25px 15px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .header p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-right: 5px solid var(--secondary);
+        }
+
+        .section-title {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* بطاقات الأسئلة التفاعلية */
+        .quiz-card {
+            background: #fdfbf7;
+            border: 1px solid #e2d9c8;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .incorrect { color: var(--incorrect-color); font-weight: bold; }
+        .correct-ans {
+            color: var(--correct-color);
+            font-weight: bold;
+            display: none;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .tip-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* الاستبيان التفاعلي */
+        .survey-q {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .survey-option {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 8px;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .survey-option:hover {
+            background: #e2e8f0;
+        }
+
+        .slide-box {
+            background: #2d3748;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .slide-title {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريحة 1: المقدمة والإهداء -->
+    <header class="header">
+        <h1>صَحّحها بِلُطْف... لِتُعاشَ العَرَبِيَّة</h1>
+        <p>مبادرة تفاعلية لتصحيح الأخطاء الشائعة ولطف الخطاب ولذة القراءة</p>
+        <p style="font-size: 0.85rem; margin-top: 12px; color: #f0e6d2;">
+            إهداء وتقدير لرؤية صاحب السمو الشيخ الدكتور سلطان بن محمد القاسمي <br>
+            وتحت إشراف دكتورة المساق الفاضلة: د. شيخة
+        </p>
+    </header>
+
+    <!-- الشريحة 2: فكرة المبادرة والأخطاء الشائعة -->
+    <div class="section-card">
+        <h2 class="section-title">1️⃣ أسئلة المسابقة والتفاعل الميداني</h2>
+        
+        <p style="font-weight: bold; color: var(--primary);">🔹 المجموعة الأولى: أخطاء لغوية ونحوية عامة (اضغط لرؤية التصحيح)</p>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>❓ هل نقول: <span class="incorrect">"هذا أمر هَامّ"</span> أم <span class="incorrect">"هذا أمر مُهِمّ"</span>؟</div>
+            <div class="correct-ans">
+                ✅ الصواب: <strong>"هذا أمر مُهِمّ"</strong>
+                <div class="tip-text">السبب: (مُهِمّ) من الفعل أَهَمَّ يُهِمُّ، أما (هامّ) فتأتي بمعنى المبتئس أو من الهَمّ.</div>
+            </div>
+        </div>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>❓ هل نقول: <span class="incorrect">"اطلعتُ على التفاضيل"</span>؟</div>
+            <div class="correct-ans">
+                ✅ الصواب: <strong>"اطلعتُ على التفاصيل"</strong> (بالسين)
+                <div class="tip-text">السبب: مشتقة من الفعل (فصَّلَ يُفصِّل تفصيلاً).</div>
+            </div>
+        </div>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>❓ هل نقول: <span class="incorrect">"حضرتُ بَكِيراً"</span> أم <span class="incorrect">"حضرتُ مُبَكِّراً"</span>؟</div>
+            <div class="correct-ans">
+                ✅ الصواب: <strong>"حضرتُ مُبَكِّراً"</strong>
+                <div class="tip-text">السبب: كلاهما معتمد في بعض المعاجم، لكن الشائع والأدق لغوياً هو (مُبَكِّراً).</div>
+            </div>
+        </div>
+
+        <p style="font-weight: bold; color: var(--primary); margin-top: 20px;">🔹 المجموعة الثانية: تصحيح أخطاء تلاوة الفاتحة</p>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>📖 قوله تعالى: ﴿إِيَّاكَ نَعْبُدُ﴾ - ما الخطأ في نطق الكاف؟</div>
+            <div class="correct-ans">
+                ✅ التصحيح اللطيف: فتح الكاف بوضوح ودون تشديد زائد أو تمطيط للصوت أو كسرها.
+            </div>
+        </div>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>📖 قوله تعالى: ﴿صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ﴾ - ما الخطأ الشائع في التاء؟</div>
+            <div class="correct-ans">
+                ✅ التصحيح اللطيف: فتح التاء <strong>(أَنْعَمْتَ)</strong> بالإسناد إلى الله عز وجل، وضمها (أنعمتُ) خطأ يغير المعنى.
+            </div>
+        </div>
+    </div>
+
+    <!-- الشريحة 3: تصميم الاستبيان التفاعلي -->
+    <div class="section-card">
+        <h2 class="section-title">2️⃣ نموذج الاستبيان التفاعلي (مباشر)</h2>
+        <p class="tip-text">استبيان حول الشغف بالقراءة والوعي باللغة العربية 📚✨</p>
+
+        <div class="survey-q">
+            <strong>1. كم كتاباً تقرأ خارج المقررات الدراسية شهرياً؟</strong>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] ولا كتاب</div>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] من 1 إلى 2</div>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] أكثر من 3 كتب</div>
+        </div>
+
+        <div class="survey-q">
+            <strong>2. ما الذي يشجعك أكثر على القراءة؟</strong>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] مبادرات القيادة والجامعة (مثل تشجيع الشيخ سلطان)</div>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] التحديات والمسابقات</div>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] الممارسات اليومية والتطبيقات الذكية</div>
+        </div>
+
+        <div class="survey-q">
+            <strong>3. أي العبارتين أصح لغوياً؟</strong>
+            <div class="survey-option" onclick="checkSurveyAns(false, this)">[ ] اعتذرتُ من الخروج</div>
+            <div class="survey-option" onclick="checkSurveyAns(true, this)">[ ] اعتذرتُ عن الخروج (الصواب)</div>
+        </div>
+
+        <div class="survey-q">
+            <strong>4. هل تؤيد تصحيح الأخطاء اللغوية بأسلوب "لطيف وغير محرج"؟</strong>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] نعم وبشدة</div>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] محايد</div>
+            <div class="survey-option" onclick="selectOpt(this)">[ ] لا</div>
+        </div>
+    </div>
+
+    <!-- الشريحة 4: قياس الأثر والنتائج -->
+    <div class="section-card">
+        <h2 class="section-title">3️⃣ قياس الأثر بالأرقام</h2>
+        <ul>
+            <li>🎯 <strong>عدد المشاركين في الاستبيان:</strong> 60 طالب وطالبة.</li>
+            <li>📈 <strong>نسبة التأييد للتصحيح اللطيف:</strong> 95% أيدوا فكرة التصحيح بدون إحراج.</li>
+            <li>🎁 <strong>التوزيعات الميدانية:</strong> توزيع فواصل الكتب (Bookmark) المتضمنة عبارات مشجعة وتصحيحات سريعة.</li>
+        </ul>
+    </div>
+
+    <!-- الشريحة 5: ترتيب العرض التقديمي (Presentation) -->
+    <div class="section-card">
+        <h2 class="section-title">4️⃣ شرائح العرض التقديمي (Presentation)</h2>
+
+        <div class="slide-box">
+            <div class="slide-title">الشريحة الأولى: المقدمة والإهداء</div>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem;">شكر وتقدير لصاحب السمو الشيخ الدكتور سلطان القاسمي ولدكتورة المساق د. شيخة، مع بيان هدف المبادرة.</p>
+        </div>
+
+        <div class="slide-box">
+            <div class="slide-title">الشريحة الثانية: فكرة المبادرة والمنتج الإبداعي</div>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem;">عرض بطاقات الأخطاء الشائعة (الفاتحة والنحو) مع رابط/QR Code الموقع.</p>
+        </div>
+
+        <div class="slide-box">
+            <div class="slide-title">الشريحة الثالثة: التطبيق الفعلي في الجامعة</div>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem;">توثيق الركن التفاعلي والمسابقة ورابط الاستبيان الميداني.</p>
+        </div>
+
+        <div class="slide-box">
+            <div class="slide-title">الشريحة الرابعة: قياس الأثر بالأرقام</div>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem;">عرض إحصائيات المشاركة (60 مشاركاً) وانطباعات الطلاب.</p>
+        </div>
+
+        <div class="slide-box">
+            <div class="slide-title">الشريحة الخامسة: ماذا فعلنا من أجل العربية؟</div>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem;">خاتمة ملهمة حول جعل اللغة العربية أسلوب حياة مستدام.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        مبادرة صَحّحها بِلُطْف... لِتُعاشَ العَرَبِيَّة © 2026
+    </div>
+
+    <script>
+        function toggleAnswer(card) {
+            const correctDiv = card.querySelector('.correct-ans');
+            if (correctDiv.style.display === 'block') {
+                correctDiv.style.display = 'none';
+            } else {
+                correctDiv.style.display = 'block';
+            }
+        }
+
+        function selectOpt(element) {
+            const siblings = element.parentElement.querySelectorAll('.survey-option');
+            siblings.forEach(opt => {
+                opt.style.background = 'white';
+                opt.style.borderColor = '#cbd5e1';
+            });
+            element.style.background = '#e2e8f0';
+            element.style.borderColor = '#1b4d3e';
+        }
+
+        function checkSurveyAns(isCorrect, element) {
+            selectOpt(element);
+            if (isCorrect) {
+                element.style.background = '#dcfce7';
+                element.style.borderColor = '#27ae60';
+            } else {
+                element.style.background = '#fee2e2';
+                element.style.borderColor = '#d9534f';
+            }
+        }
+    </script>
+</body>
+</html>
