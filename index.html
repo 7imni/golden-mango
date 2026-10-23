@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبادرة صَحّحها بِلُطْف... لِتُعاشَ العَرَبِيَّة</title>
+    <style>
+        :root {
+            --primary-color: #1b4d3e;
+            --accent-color: #c5a059;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 15px;
+            direction: rtl;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2d7059);
+            color: white;
+            padding: 25px 15px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-right: 5px solid var(--accent-color);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* بطاقات الخطأ والصواب التفاعلية */
+        .quiz-card {
+            background: #fdfbf7;
+            border: 1px solid #e2d9c8;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .incorrect {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .correct {
+            color: #27ae60;
+            font-weight: bold;
+            display: none;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .tip-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* زر الإظهار */
+        .btn-toggle {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* الاستبيان */
+        .poll-option {
+            background: #edf2f7;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .poll-option:hover {
+            background: #e2e8f0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- التمهيد والافتتاح -->
+    <header>
+        <h1>صَحّحها بِلُطْف... لِتُعاشَ العَرَبِيَّة</h1>
+        <p>مبادرة تفاعلية لتصحيح الأخطاء الشائعة ولطف الخطاب ولذة القراءة</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #e0e0e0;">
+            إهداء واعتزاز برؤية صاحب السمو الشيخ الدكتور سلطان بن محمد القاسمي <br>
+            وتحت إشراف الدكتورة الفاضلة: د. شيخة
+        </p>
+    </header>
+
+    <!-- المرحلة الأولى: رؤية المبادرة -->
+    <div class="section-card">
+        <h2 class="section-title">1️⃣ رؤية المبادرة والتمهيد</h2>
+        <p>
+            نهدف من خلال هذه المبادرة إلى جعل اللغة العربية لغة حية ومحبوبة، ونشر ثقافة التصحيح اللطيف دون إحراج، تعزيزاً للقراءة والاعتزاز بهويتنا اللغوية كـ <strong>"أسلوب حياة"</strong>.
+        </p>
+    </div>
+
+    <!-- المرحلة الثانية: البطاقات اللغوية التفاعلية -->
+    <div class="section-card">
+        <h2 class="section-title">2️⃣ ركن (الخطأ والصواب) اللغوي</h2>
+        <p class="tip-text">💡 اضغط على البطاقة لإظهار التصحيح والتوضيح اللطيف:</p>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>❓ هل تقول: <span class="incorrect">"أنا أخصائي لغة عربية"</span>؟</div>
+            <div class="correct">
+                ✅ الصواب: <strong>"أنا مُخْتَصّ في اللغة العربية"</strong>
+                <div class="tip-text">السبب: كلمة (أخصائي) اسم منسوب غير دقيق لغوياً، والأصح استخدام كلمة (مُختصّ).</div>
+            </div>
+        </div>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>❓ هل تقول: <span class="incorrect">"تَأَكَّدْ من قِراءَة المَبادَرَات"</span>؟</div>
+            <div class="correct">
+                ✅ الصواب: <strong>"تَأَكَّدْ مِنْ قِراءَةِ المُبادَرَات"</strong> (بضم الميم)
+                <div class="tip-text">السبب: المبادرة بضم الميم مصدر الفعل (بادر).</div>
+            </div>
+        </div>
+
+        <div class="quiz-card" onclick="toggleAnswer(this)">
+            <div>📖 تصحيح أخطاء التلاوة (سورة الفاتحة): <span class="incorrect">"أنعمتُ عليهم"</span></div>
+            <div class="correct">
+                ✅ الصواب: <strong>"صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ"</strong> (بفتح التاء)
+                <div class="tip-text">تنبيه: ضم التاء يحوّل المعنى لإسناد النعمة للنفس، والفتح يُسند النعمة إلى الله عز وجل.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المرحلة الثالثة: استبيان واختبار تفاعلي -->
+    <div class="section-card">
+        <h2 class="section-title">3️⃣ اختبار تفاعلي سريع للجمهور</h2>
+        <p>اختبر وعيك اللغوي: ما هو التعبير الأصح لغوياً؟</p>
+
+        <div id="quiz-box">
+            <p><strong>"مبروك النجاح" أم "مبارك النجاح"؟</strong></p>
+            <div class="poll-option" onclick="checkQuiz(false, this)">أ) مبروك النجاح</div>
+            <div class="poll-option" onclick="checkQuiz(true, this)">ب) مبارك النجاح</div>
+        </div>
+        <div id="quiz-result" style="margin-top: 10px; font-weight: bold;"></div>
+    </div>
+
+    <!-- المرحلة الرابعة: قياس الأثر -->
+    <div class="section-card">
+        <h2 class="section-title">4️⃣ قياس الأثر والمشاركة</h2>
+        <ul>
+            <li>🎯 <strong>عدد المشاركين المتوقع:</strong> 50+ طالب وطالبة من أروقة الجامعة.</li>
+            <li>🎁 <strong>الهدايا والتوزيعات:</strong> فاصل كتاب (Bookmark) يحمل عبارات ملهمة وتصحيحات لطيفة.</li>
+            <li>💬 <strong>انطباع المشاركين:</strong> تعزيز شعور لذة القراءة وتصحيح المفاهيم بلطف ومحبة.</li>
+        </ul>
+    </div>
+
+    <!-- المرحلة الخامسة: العرض الختامي -->
+    <div class="section-card" style="border-right-color: var(--primary-color);">
+        <h2 class="section-title">5️⃣ ماذا فعلنا من أجل العربية؟</h2>
+        <p>
+            قدمنا النموذج التفاعلي الحقيقي للغة العربية الحية، وبرهنا أن التصحيح اللطيف هو أقصر طريق للحب والتعلّم المستمر.
+        </p>
+    </div>
+
+    <div class="footer">
+        حقوق المبادرة محفوظة © | صَحّحها بِلُطْف... لِتُعاشَ العَرَبِيَّة
+    </div>
+
+    <script>
+        function toggleAnswer(card) {
+            const correctDiv = card.querySelector('.correct');
+            if (correctDiv.style.display === 'block') {
+                correctDiv.style.display = 'none';
+            } else {
+                correctDiv.style.display = 'block';
+            }
+        }
+
+        function checkQuiz(isCorrect, element) {
+            const resultDiv = document.getElementById('quiz-result');
+            const options = document.querySelectorAll('.poll-option');
+            
+            options.forEach(opt => opt.style.border = 'none');
+
+            if (isCorrect) {
+                element.style.border = '2px solid #27ae60';
+                resultDiv.innerHTML = "<span style='color: #27ae60;'>إجابة صحيحة! 🎉 (مُبارَك) من الفِعل بَارَك، أمّا (مَبروك) فمن الفِعل بَرَكَ الجَمَل.</span>";
+            } else {
+                element.style.border = '2px solid #d9534f';
+                resultDiv.innerHTML = "<span style='color: #d9534f;'>إجابة خاطئة! حاول مرة أخرى 💡</span>";
+            }
+        }
+    </script>
+</body>
+</html>
